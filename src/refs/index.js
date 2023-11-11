@@ -1,2 +1,4 @@
 const formEl = document.querySelector(".form");
-export {formEl};
+const listEl = document.querySelector(".list");
+
+export { formEl, listEl };
