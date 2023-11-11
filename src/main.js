@@ -41,3 +41,20 @@ onLoad();
 function addMarkup(markup) {
   listEl.insertAdjacentHTML("beforeend", markup);
 }
+function removeLi(event) {
+  if (event.target.tagName !== "BUTTON") {
+    return;
+  }
+  // console.log(1, 2, 3);
+  const parent = event.target.closest(".item");
+  const taskId = parent.dataset.id;
+
+  // console.log(parent);
+
+  const items = getData().filter(({ id }) => {
+    return id.toString() !== taskId;
+  });
+  saveData(items);
+  parent.remove();
+}
+listEl.addEventListener("click", removeLi);
